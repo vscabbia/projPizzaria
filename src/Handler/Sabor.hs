@@ -4,64 +4,66 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE QuasiQuotes #-}
-module Handler.Produto where
+module Handler.Sabor where
 
 import Import
 --import Database.Persist.Postgresql
 
 -- (<$>) = fmap :: Functor f => (a -> b) -> f a -> f b
 -- (<*>) :: Applicative f => f (a -> b) -> f a -> f b
-formProduto :: Maybe Produto -> Form Produto
-formProduto prod = renderDivs $ Produto  
+formSabor :: Maybe Sabor -> Form Sabor
+formSabor prod = renderDivs $ Sabor  
     <$> areq textField (FieldSettings "Nome: " 
                                       Nothing
                                       (Just "hs12")
                                       Nothing
                                       [("class","myClass")]
-                       ) (fmap produtoNome prod)
-    <*> areq doubleField "Preco: " (fmap produtoPreco prod)
+                       ) (fmap saborNome prod)
+    <*> areq doubleField "Preco: " (fmap saborPreco prod)
+    <*> areq textField "Descrição: " (fmap saborDescricao prod)
 
-auxProdutoR :: Route App -> Maybe Produto -> Handler Html
-auxProdutoR rt produto = do
-    (widget,_) <- generateFormPost (formProduto produto)
+
+auxSaborR :: Route App -> Maybe Sabor -> Handler Html
+auxSaborR rt sabor = do
+    (widget,_) <- generateFormPost (formSabor sabor)
     defaultLayout $ do
         [whamlet|
             <h1>
-                 CADASTRO DE PRODUTO
+                 CADASTRO DE SABOR
             
             <form action=@{rt} method=post>
                 ^{widget}
                 <input type="submit" value="Cadastrar">
         |]
     
-getProdutoR :: Handler Html
-getProdutoR = auxProdutoR ProdutoR Nothing
+getSaborR :: Handler Html
+getSaborR = auxSaborR SaborR Nothing
     
-postProdutoR :: Handler Html
-postProdutoR = do
-    ((resp,_),_) <- runFormPost (formProduto Nothing)
+postSaborR :: Handler Html
+postSaborR = do
+    ((resp,_),_) <- runFormPost (formSabor Nothing)
     case resp of 
-         FormSuccess produto -> do 
-             pid <- runDB $ insert produto
+         FormSuccess sabor -> do 
+             pid <- runDB $ insert sabor
              redirect (DescR pid)
          _ -> redirect HomeR
 
--- SELECT * from produto where id = pid 
-getDescR :: ProdutoId -> Handler Html
+-- SELECT * from sabor where id = pid 
+getDescR :: SaborId -> Handler Html
 getDescR pid = do 
-    produto <- runDB $ get404 pid
+    sabor <- runDB $ get404 pid
     defaultLayout [whamlet|
         <h1>
-            Nome: #{produtoNome produto}
+            Nome: #{saborNome sabor}
         
         <h2>
-            Preco: #{produtoPreco produto}
+            Preco: #{saborPreco sabor}
     |]
 
 getListProdR :: Handler Html
 getListProdR = do 
-    -- produtos :: [Entity Produto]
-    produtos <- runDB $ selectList [] [Desc ProdutoPreco]
+    -- sabors :: [Entity Sabor]
+    sabors <- runDB $ selectList [] [Desc SaborPreco]
     defaultLayout [whamlet|
             <table>
                 <thead>
@@ -70,19 +72,19 @@ getListProdR = do
                             Nome
                         
                         <th>
-                            Produto
+                            Sabor
                         
                         <th>
                         
                         <th>
                 <tbody>
-                    $forall Entity pid prod <- produtos
+                    $forall Entity pid prod <- sabors
                         <tr>
                             <td>
-                                #{produtoNome prod}
+                                #{saborNome prod}
                             
                             <td>
-                                #{produtoPreco prod}
+                                #{saborPreco prod}
                             
                             <th>
                                 <a href=@{UpdProdR pid}>
@@ -92,22 +94,22 @@ getListProdR = do
                                     <input type="submit" value="X">
     |]
 
-getUpdProdR :: ProdutoId -> Handler Html
+getUpdProdR :: SaborId -> Handler Html
 getUpdProdR pid = do 
     antigo <- runDB $ get404 pid
-    auxProdutoR (UpdProdR pid) (Just antigo)    
+    auxSaborR (UpdProdR pid) (Just antigo)    
     
--- UPDATE produto WHERE id = pid SET ...
-postUpdProdR :: ProdutoId -> Handler Html
+-- UPDATE sabor WHERE id = pid SET ...
+postUpdProdR :: SaborId -> Handler Html
 postUpdProdR pid = do
-    ((resp,_),_) <- runFormPost (formProduto Nothing)
+    ((resp,_),_) <- runFormPost (formSabor Nothing)
     case resp of 
          FormSuccess novo -> do
             runDB $ replace pid novo
             redirect (DescR pid) 
          _ -> redirect HomeR
 
-postDelProdR :: ProdutoId -> Handler Html
+postDelProdR :: SaborId -> Handler Html
 postDelProdR pid = do 
     _ <- runDB $ get404 pid 
     runDB $ delete pid 

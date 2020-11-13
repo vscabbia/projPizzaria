@@ -8,6 +8,7 @@
 module Handler.Home where
 
 import Import
+   
 
 getHomeR :: Handler Html
 getHomeR = defaultLayout $ do
@@ -15,12 +16,12 @@ getHomeR = defaultLayout $ do
   [whamlet|
 
         <h1>
-            SISTEMA DE PRODUTO
+            SISTEMA DE SABOR
         
-        <img src=@{StaticR img_produto_jpg}>
+        <img src=@{StaticR img_sabor_jpg}>
         
         <ul>
             <li> 
-                <a href=@{ProdutoR}>
+                <a href=@{SaborR}>
                     CADASTRO
     |]

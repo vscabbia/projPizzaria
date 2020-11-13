@@ -1,4 +1,17 @@
-Produto
+Sabor
     nome Text
     preco Double
+    descricao Text
     deriving Show
+
+Unidade
+    nome Text
+    endereco Text
+    deriving Show
+
+Pedidos
+    saborId SaborId
+    unidadeId UnidadeId
+    endereco Text
+    deriving Show
+
