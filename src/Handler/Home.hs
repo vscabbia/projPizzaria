@@ -23,5 +23,22 @@ getHomeR = defaultLayout $ do
         <ul>
             <li> 
                 <a href=@{SaborR}>
-                    CADASTRO
+                    CADASTRO DE SABOR
+            <li> 
+                <a href=@{CardapioR}>
+                    CARDAPIO
     |]
+
+getCardapioR :: Handler Html
+getCardapioR = do
+  sabors <- runDB $ selectList [] [Desc SaborPreco]
+  defaultLayout $ do
+    addStylesheet (StaticR css_bootstrap_css)
+    [whamlet|
+            <h1>Cardápio
+            
+            <ul>
+                $forall Entity sid sabor <- sabors
+                    <li> 
+                        #{saborNome sabor}
+        |]

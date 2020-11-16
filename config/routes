@@ -4,8 +4,9 @@
 /robots.txt RobotsR GET
 
 / HomeR GET 
-/sabor                    SaborR   GET POST
-/sabor/#SaborId/descr   DescR      GET
-/sabors                   ListProdR  GET
-/sabor/#SaborId/modifica UpdProdR  GET POST
-/sabor/#SaborId/del      DelProdR  POST
+/sabor                     SaborR    GET POST
+/sabor/#SaborId/descr      DescR     GET
+/sabors                    ListProdR GET
+/sabor/#SaborId/modifica   UpdProdR  GET POST
+/sabor/#SaborId/del        DelProdR  POST
+/cardapio                  CardapioR GET
