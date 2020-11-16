@@ -10,3 +10,5 @@
 /sabor/#SaborId/modifica   UpdProdR  GET POST
 /sabor/#SaborId/del        DelProdR  POST
 /cardapio                  CardapioR GET
+/pedido                    PedidoR   GET POST
+/criarpedido               CrPedidoR GET
