@@ -7,17 +7,22 @@
 module Handler.Pedido where
 
 import Import
-import Database.Persist.Sql ( fromSqlKey, toSqlKey )
+import Database.Persist.Sql ( fromSqlKey )
 
-formPedidos :: Form Pedidos
-formPedidos = renderDivs $ Pedidos
-    <$> areq (selectFieldList [("Opçao 0" :: Text, toSqlKey 0),("Opçao 1" :: Text, toSqlKey 1)]) "Which value?" Nothing
-    <*> areq (selectFieldList [("Opçao 0" :: Text, toSqlKey 0),("Opçao 1" :: Text, toSqlKey 1)]) "Which value?" Nothing
+formPedidos :: [Entity Unidade] -> [Entity Sabor] -> Form Pedidos
+formPedidos us ss = renderDivs $ Pedidos
+    <$> areq (selectFieldList opcoesSabores) "Escolher sabor" Nothing
+    <*> areq (selectFieldList opcoesUnidades) "Escolher unidade" Nothing
     <*> areq textField "Endereço " Nothing
+    where
+        opcoesUnidades = fmap (\(Entity uid u) -> (unidadeNome u, uid)) us
+        opcoesSabores = fmap (\(Entity sid s) -> (saborNome s, sid)) ss
     
 postPedidoR :: Handler Html
 postPedidoR = do
-    ((resp,_),_) <- runFormPost formPedidos
+    unidades <- runDB $ selectList [] [Desc UnidadeId]
+    sabores <- runDB $ selectList [] [Desc SaborId]
+    ((resp,_),_) <- runFormPost $ formPedidos unidades sabores
     case resp of 
          FormSuccess sabor -> do 
              _ <- runDB $ insert sabor
@@ -53,13 +58,16 @@ getPedidoR = do
 
 getCrPedidoR :: Handler Html
 getCrPedidoR = do 
-    (widget,_) <- generateFormPost formPedidos
+    unidades <- runDB $ selectList [] [Desc UnidadeId]
+    sabores <- runDB $ selectList [] [Desc SaborId]
+    (widget,_) <- generateFormPost $ formPedidos unidades sabores
     defaultLayout $ do
+        addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <h1>
                  FAZER PEDIDO
             
             <form action=@{PedidoR} method=post>
                 ^{widget}
-                <input type="submit" value="Cadastrar">
+                <button type="submit" class="btn btn-primary">Cadastrar
         |]  
