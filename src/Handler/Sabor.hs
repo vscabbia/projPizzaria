@@ -27,13 +27,14 @@ auxSaborR :: Route App -> Maybe Sabor -> Handler Html
 auxSaborR rt sabor = do
     (widget,_) <- generateFormPost (formSabor sabor)
     defaultLayout $ do
+        addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <h1>
                  CADASTRO DE SABOR
             
             <form action=@{rt} method=post>
                 ^{widget}
-                <input type="submit" value="Cadastrar">
+                <button type="submit" class="btn btn-primary">Cadastrar
         |]
     
 getSaborR :: Handler Html
@@ -91,7 +92,7 @@ getListProdR = do
                                     Editar
                             <th>
                                 <form action=@{DelProdR pid} method=post>
-                                    <input type="submit" value="X">
+                                    <button type="submit" class="btn btn-primary">×
     |]
 
 getUpdProdR :: SaborId -> Handler Html
