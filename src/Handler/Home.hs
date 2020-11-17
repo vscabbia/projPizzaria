@@ -33,6 +33,9 @@ getHomeR = defaultLayout $ do
                                 <a class="btn btn-light mx-2" href=@{CrPedidoR}>
                                     Fazer pedido
 
+                                <a class="btn btn-light mx-2" href=@{PedidoR}>
+                                    Ver pedidos
+
                                 <a class="btn btn-light mx-2" href=@{UnidadeR}>
                                     Cadastrar unidades
                             

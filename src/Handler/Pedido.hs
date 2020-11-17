@@ -34,8 +34,10 @@ postPedidoR = do
 getPedidoR :: Handler Html
 getPedidoR = do 
     pedidos <- runDB $ selectList [] [Desc PedidosUnidadeId]
-    defaultLayout [whamlet|
-            <table>
+    defaultLayout $ do
+        addStylesheet (StaticR css_bootstrap_css)
+        [whamlet|
+            <table class=" table table-striped ">
                 <thead>
                     <tr>
                         <th> 

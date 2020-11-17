@@ -66,7 +66,7 @@ getListProdR = do
     -- sabors :: [Entity Sabor]
     sabors <- runDB $ selectList [] [Desc SaborPreco]
     defaultLayout [whamlet|
-            <table>
+            <table class=" table table-hover table-striped ">
                 <thead>
                     <tr>
                         <th> 
