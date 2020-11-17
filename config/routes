@@ -9,6 +9,12 @@
 /sabors                    ListProdR GET
 /sabor/#SaborId/modifica   UpdProdR  GET POST
 /sabor/#SaborId/del        DelProdR  POST
+
+/unidade                       UnidadeR     GET POST
+/unidades                      ListUnidadeR GET
+/unidade/#UnidadeId/modifica   UpdUnidadeR  GET POST
+/unidade/#UnidadeId/del        DelUnidadeR  POST
+
 /cardapio                  CardapioR GET
 /pedido                    PedidoR   GET POST
 /criarpedido               CrPedidoR GET
