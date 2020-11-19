@@ -12,6 +12,7 @@ import Import
 
 getHomeR :: Handler Html
 getHomeR = defaultLayout $ do
+  setTitle "Página Inicial"
   addStylesheet (StaticR css_bootstrap_css)
   [whamlet|
 
@@ -51,6 +52,7 @@ getCardapioR :: Handler Html
 getCardapioR = do
   sabors <- runDB $ selectList [] [Desc SaborPreco]
   defaultLayout $ do
+    setTitle "Cardápio"
     addStylesheet (StaticR css_bootstrap_css)
     [whamlet|
             <a href=@{HomeR}>

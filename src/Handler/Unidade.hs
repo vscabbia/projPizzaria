@@ -17,6 +17,7 @@ auxUnidadeR :: Route App -> Maybe Unidade -> Handler Html
 auxUnidadeR rt unidade = do
     (widget,_) <- generateFormPost (formUnidade unidade)
     defaultLayout $ do
+        setTitle "Cadastro de Unidade"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>
@@ -47,6 +48,7 @@ getListUnidadeR = do
     -- unidades :: [Entity Unidade]
     unidades <- runDB $ selectList [] [Desc UnidadeNome]
     defaultLayout $ do
+        setTitle "Lista de Unidades"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
                 <a href=@{HomeR}>

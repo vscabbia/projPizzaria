@@ -6,3 +6,4 @@ Projeto de site feito em **Haskell** e **Yesod** para ser utilizado como sistema
 2. ```cd projPizzaria```
 3. ```stack build```
 4. ```stack exec aulahaskell```
+5. Acessar a aplicação pelo link http://localhost:8080/

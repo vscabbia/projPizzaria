@@ -27,6 +27,7 @@ auxSaborR :: Route App -> Maybe Sabor -> Handler Html
 auxSaborR rt sabor = do
     (widget,_) <- generateFormPost (formSabor sabor)
     defaultLayout $ do
+        setTitle "Cadastro de Sabor"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>

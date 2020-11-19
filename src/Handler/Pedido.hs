@@ -35,6 +35,7 @@ getPedidoR :: Handler Html
 getPedidoR = do 
     pedidos <- runDB $ selectList [] [Desc PedidosUnidadeId]
     defaultLayout $ do
+        setTitle "Lista de Pedidos"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>
@@ -67,6 +68,7 @@ getCrPedidoR = do
     sabores <- runDB $ selectList [] [Desc SaborId]
     (widget,_) <- generateFormPost $ formPedidos unidades sabores
     defaultLayout $ do
+        setTitle "Fazer Pedido"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>
