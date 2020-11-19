@@ -9,8 +9,8 @@ module Handler.Unidade where
 import Import
 formUnidade :: Maybe Unidade -> Form Unidade
 formUnidade unidade = renderDivs $ Unidade  
-    <$> areq textField "Nome" (fmap unidadeNome unidade)
-    <*> areq textField "Endereço " (fmap unidadeEndereco unidade)
+    <$> areq textField "Nome: " (fmap unidadeNome unidade)
+    <*> areq textField "Endereço: " (fmap unidadeEndereco unidade)
 
 
 auxUnidadeR :: Route App -> Maybe Unidade -> Handler Html
@@ -26,9 +26,9 @@ auxUnidadeR rt unidade = do
             <h1>
                  CADASTRO DE UNIDADE
             
-            <form action=@{rt} method=post>
+            <form action=@{rt} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
-                <button type="submit" class="btn btn-primary">Cadastrar
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Cadastrar
         |]
 
 getUnidadeR :: Handler Html

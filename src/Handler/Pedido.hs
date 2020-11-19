@@ -11,9 +11,9 @@ import Database.Persist.Sql ( fromSqlKey )
 
 formPedidos :: [Entity Unidade] -> [Entity Sabor] -> Form Pedidos
 formPedidos us ss = renderDivs $ Pedidos
-    <$> areq (selectFieldList opcoesSabores) "Escolher sabor" Nothing
-    <*> areq (selectFieldList opcoesUnidades) "Escolher unidade" Nothing
-    <*> areq textField "Endereço " Nothing
+    <$> areq (selectFieldList opcoesSabores) "Escolher sabor: " Nothing
+    <*> areq (selectFieldList opcoesUnidades) "Escolher unidade: " Nothing
+    <*> areq textField "Endereço: " Nothing
     where
         opcoesUnidades = fmap (\(Entity uid u) -> (unidadeNome u, uid)) us
         opcoesSabores = fmap (\(Entity sid s) -> (saborNome s, sid)) ss
@@ -77,7 +77,7 @@ getCrPedidoR = do
             <h1>
                  FAZER PEDIDO
             
-            <form action=@{PedidoR} method=post>
+            <form action=@{PedidoR} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
-                <button type="submit" class="btn btn-primary">Cadastrar
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Cadastrar
         |]  

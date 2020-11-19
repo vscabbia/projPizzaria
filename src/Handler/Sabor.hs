@@ -19,7 +19,7 @@ formSabor prod = renderDivs $ Sabor
                                       Nothing
                                       [("class","myClass")]
                        ) (fmap saborNome prod)
-    <*> areq doubleField "Preco: " (fmap saborPreco prod)
+    <*> areq doubleField "Preço: " (fmap saborPreco prod)
     <*> areq textField "Descrição: " (fmap saborDescricao prod)
 
 
@@ -36,9 +36,10 @@ auxSaborR rt sabor = do
             <h1>
                 CADASTRO DE SABOR
             
-            <form action=@{rt} method=post>
+            <form action=@{rt} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
-                <button type="submit" class="btn btn-primary">Cadastrar
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px">
+                    Cadastrar
         |]
     
 getSaborR :: Handler Html
