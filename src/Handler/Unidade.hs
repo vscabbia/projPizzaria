@@ -58,7 +58,7 @@ getListUnidadeR = do
                     <thead>
                         <tr>
                             <th> 
-                                Nome
+                                Nome da Unidade
                             
                             <th>
                                 Endereço

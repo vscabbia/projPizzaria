@@ -62,7 +62,7 @@ getDescR pid = do
             Nome: #{saborNome sabor}
         
         <h2>
-            Preco: #{saborPreco sabor}
+            Preço: #{saborPreco sabor}
     |]
 
 getListProdR :: Handler Html

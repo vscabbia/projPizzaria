@@ -45,11 +45,11 @@ getPedidoR = do
                 <thead>
                     <tr>
                         <th> 
-                            Nome
+                            Unidade
                         <th>
                             Sabor
                         <th>
-                            Endereço
+                            Endereço de Entrega
                 <tbody>
                     $forall Entity _ pedido <- pedidos
                         <tr>
