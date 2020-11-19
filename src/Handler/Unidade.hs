@@ -19,6 +19,9 @@ auxUnidadeR rt unidade = do
     defaultLayout $ do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
+            <a href=@{HomeR}>
+                Página Inicial
+
             <h1>
                  CADASTRO DE UNIDADE
             
@@ -26,7 +29,7 @@ auxUnidadeR rt unidade = do
                 ^{widget}
                 <button type="submit" class="btn btn-primary">Cadastrar
         |]
-    
+
 getUnidadeR :: Handler Html
 getUnidadeR = auxUnidadeR UnidadeR Nothing
     
@@ -46,6 +49,9 @@ getListUnidadeR = do
     defaultLayout $ do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
+                <a href=@{HomeR}>
+                    Página Inicial
+                
                 <table class=" table table-hover table-striped ">
                     <thead>
                         <tr>

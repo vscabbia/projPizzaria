@@ -29,8 +29,11 @@ auxSaborR rt sabor = do
     defaultLayout $ do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
+            <a href=@{HomeR}>
+                Página Inicial
+
             <h1>
-                 CADASTRO DE SABOR
+                CADASTRO DE SABOR
             
             <form action=@{rt} method=post>
                 ^{widget}

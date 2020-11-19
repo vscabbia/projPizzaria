@@ -37,6 +37,9 @@ getPedidoR = do
     defaultLayout $ do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
+            <a href=@{HomeR}>
+                Página Inicial
+                
             <table class=" table table-striped ">
                 <thead>
                     <tr>
@@ -66,6 +69,9 @@ getCrPedidoR = do
     defaultLayout $ do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
+            <a href=@{HomeR}>
+                Página Inicial
+
             <h1>
                  FAZER PEDIDO
             

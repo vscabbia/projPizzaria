@@ -16,7 +16,7 @@ getHomeR = defaultLayout $ do
   [whamlet|
 
         <h1 class="ml-3">
-            Pizzaria
+            Sistema Interno da Pizzaria
         <div class="container-fluid" style="background-image: url(@{StaticR img_sabor_jpg});height:33em;background-size:cover">
             
             
@@ -53,6 +53,9 @@ getCardapioR = do
   defaultLayout $ do
     addStylesheet (StaticR css_bootstrap_css)
     [whamlet|
+            <a href=@{HomeR}>
+                Página Inicial
+                
             <h1>Cardápio
             
             <table class=" table table-striped ">
