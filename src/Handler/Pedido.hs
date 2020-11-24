@@ -75,9 +75,9 @@ getCrPedidoR = do
                 Página Inicial
 
             <h1>
-                 FAZER PEDIDO
+                 Fazer Pedido
             
             <form action=@{PedidoR} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
                 <button type="submit" class="btn btn-primary" style="margin-top: 10px">Cadastrar
-        |]  
+        |

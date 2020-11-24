@@ -1,5 +1,7 @@
-# Sistema Interno de Pizzaria
+# Sistema Interno de Pizzaria :pizza:
 Projeto de site feito em **Haskell** e **Yesod** para ser utilizado como sistema interno de uma pizzaria.
+
+
 
 ## Rodar Aplicação Localmente
 1. ```git clone https://github.com/vscabbia/projPizzaria```

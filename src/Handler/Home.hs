@@ -17,7 +17,7 @@ getHomeR = defaultLayout $ do
   [whamlet|
 
         <h1 class="ml-3">
-            Sistema Interno da Pizzaria
+            Mega Pizza: Sistema Interno
         <div class="container-fluid" style="background-image: url(@{StaticR img_sabor_jpg});height:33em;background-size:cover">
             
             

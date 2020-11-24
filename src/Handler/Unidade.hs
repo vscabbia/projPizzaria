@@ -24,7 +24,7 @@ auxUnidadeR rt unidade = do
                 Página Inicial
 
             <h1>
-                 CADASTRO DE UNIDADE
+                 Cadastro De Unidade
             
             <form action=@{rt} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}

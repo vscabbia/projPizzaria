@@ -34,7 +34,7 @@ auxSaborR rt sabor = do
                 Página Inicial
 
             <h1>
-                CADASTRO DE SABOR
+                Cadastro De Sabor
             
             <form action=@{rt} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
