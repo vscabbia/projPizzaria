@@ -38,8 +38,8 @@ getPedidoR = do
         setTitle "Lista de Pedidos"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
-            <a href=@{HomeR}>
-                <b style="margin-left: 5px">&lt- Voltar
+            <a href=@{HomeR} class="btn btn-outline-primary btn-sm" style="margin: 5px 5px">
+                Voltar
                 
             <table class=" table table-striped ">
                 <thead>
@@ -71,13 +71,14 @@ getCrPedidoR = do
         setTitle "Fazer Pedido"
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
-            <a href=@{HomeR}>
-                <b style="margin-left: 5px">&lt- Voltar
+            <a href=@{HomeR} class="btn btn-outline-primary btn-sm" style="margin: 5px 5px">
+                Voltar
 
             <h1 style="margin: 5px 0px 0px 5px">
                  Fazer Pedido
             
             <form action=@{PedidoR} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
-                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Cadastrar
+                <button type="submit" class="btn btn-success" style="margin-top: 10px">
+                    <b>Cadastrar
         |]
