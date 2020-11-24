@@ -21,10 +21,10 @@ auxUnidadeR rt unidade = do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>
-                Página Inicial
+                <b style="margin-left: 5px">&lt- Voltar
 
-            <h1>
-                 Cadastro De Unidade
+            <h1 style="margin: 5px 0px 0px 5px">
+                Cadastro De Unidade
             
             <form action=@{rt} method=post style="margin: 10px 0px 0px 5px">
                 ^{widget}
@@ -52,7 +52,7 @@ getListUnidadeR = do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
                 <a href=@{HomeR}>
-                    Página Inicial
+                    <b style="margin-left: 5px">&lt- Voltar
                 
                 <table class=" table table-hover table-striped ">
                     <thead>

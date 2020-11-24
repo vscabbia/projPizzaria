@@ -39,7 +39,7 @@ getPedidoR = do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>
-                Página Inicial
+                <b style="margin-left: 5px">&lt- Voltar
                 
             <table class=" table table-striped ">
                 <thead>
@@ -72,9 +72,9 @@ getCrPedidoR = do
         addStylesheet (StaticR css_bootstrap_css)
         [whamlet|
             <a href=@{HomeR}>
-                Página Inicial
+                <b style="margin-left: 5px">&lt- Voltar
 
-            <h1>
+            <h1 style="margin: 5px 0px 0px 5px">
                  Fazer Pedido
             
             <form action=@{PedidoR} method=post style="margin: 10px 0px 0px 5px">

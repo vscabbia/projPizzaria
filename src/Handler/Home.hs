@@ -56,9 +56,9 @@ getCardapioR = do
     addStylesheet (StaticR css_bootstrap_css)
     [whamlet|
             <a href=@{HomeR}>
-                Página Inicial
+                <b style="margin-left: 5px">&lt- Voltar
                 
-            <h1>Cardápio
+            <h1 style="margin: 5px 0px 0px 5px">Cardápio
             
             <table class=" table table-striped ">
                     <thead>
