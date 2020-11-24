@@ -26,7 +26,7 @@ postPedidoR = do
     case resp of 
          FormSuccess sabor -> do 
              _ <- runDB $ insert sabor
-             redirect HomeR
+             redirect PedidoR
          _ -> redirect HomeR
 
 

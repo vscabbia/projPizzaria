@@ -58,14 +58,23 @@ postSaborR = do
 getDescR :: SaborId -> Handler Html
 getDescR pid = do 
     sabor <- runDB $ get404 pid
-    defaultLayout [whamlet|
-        <h1>
-            Nome: #{saborNome sabor}
+    defaultLayout $ do
+        addStylesheet (StaticR css_bootstrap_css)
+        setTitle "Sabor Cadastrado"
         
-        <h2>
-            Preço: #{saborPreco sabor}
-    |]
+        [whamlet|
+            <a href=@{HomeR} class="btn btn-outline-primary btn-sm" style="margin: 5px 5px">
+                Voltar
+                
+            <h1 style="margin: 5px 0px 10px 5px">
+                Sabor Cadastrado
 
+            <h2 style="margin-left: 5px">
+                Sabor: #{saborNome sabor}
+        
+            <h2 style="margin-left: 5px">
+                Preço: #{saborPreco sabor}
+        |]
 getListProdR :: Handler Html
 getListProdR = do 
     -- sabors :: [Entity Sabor]
