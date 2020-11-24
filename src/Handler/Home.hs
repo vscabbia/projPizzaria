@@ -15,37 +15,37 @@ getHomeR = defaultLayout $ do
   setTitle "Página Inicial"
   addStylesheet (StaticR css_bootstrap_css)
   [whamlet|
-
-        <h1 class="ml-3">
+      <h1 class="ml-3">
             Mega Pizza: Sistema Interno
-        <div class="container-fluid" style="background-image: url(@{StaticR img_sabor_jpg});height:33em;background-size:cover">
-            
-            
-                <div class="container">
-                        <div class="row pt-3">
-                            <div class="d-flex justify-content-center">
+      
+      <div class="container-fluid" style="background-image: url(@{StaticR img_sabor_jpg});height:40em;background-repeat: repeat-repeat;"> 
+            <div class="container" style="padding-top: 20px">
+                <div class="row pt-3">
+                    <div class="d-flex justify-content-center">
+                        <h2 style="margin-right: 15px; color: #ffffff"> Sabores:
+                        <div class="btn-group" role="group" aria-label="Sabores">
+                            <a class="btn btn-light btn-lg" href=@{SaborR}>
+                                <b>Cadastrar Sabor
+                            <a class="btn btn-light btn-lg" href=@{CardapioR}>
+                                <b>Ver Cardápio
+                                
+                <div class="row pt-3" style="margin-top: 10px">
+                    <div class="d-flex justify-content-center">
+                        <h2 style="margin-right: 15px; color: #ffffff"> Pedidos:
+                        <div class="btn-group" role="group" aria-label="Sabores">
+                            <a class="btn btn-light btn-lg" href=@{CrPedidoR}>
+                                <b>Fazer Pedido
+                            <a class="btn btn-light btn-lg" href=@{PedidoR}>
+                                <b>Ver Pedidos                 
 
-                                <a class="mx-2" class="btn btn-light" href=@{SaborR}>
-                                    Cadastrar sabor
-                            
-                                <a class="btn btn-light mx-2" href=@{CardapioR}>
-                                    Ver cardápio
-                            
-                                <a class="btn btn-light mx-2" href=@{CrPedidoR}>
-                                    Fazer pedido
-
-                                <a class="btn btn-light mx-2" href=@{PedidoR}>
-                                    Ver pedidos
-
-                                <a class="btn btn-light mx-2" href=@{UnidadeR}>
-                                    Cadastrar unidades
-                            
-                                <a class="btn btn-light mx-2" href=@{ListUnidadeR}>
-                                    Ver unidades
-                            
-                        
-
-
+                <div class="row pt-3" style="margin-top: 10px">
+                    <div class="d-flex justify-content-center">
+                        <h2 style="margin-right: 15px; color: #ffffff"> Unidades:
+                        <div class="btn-group" role="group" aria-label="Sabores">
+                            <a class="btn btn-light btn-lg" href=@{UnidadeR}>
+                                <b>Cadastrar Unidades
+                            <a class="btn btn-light btn-lg" href=@{ListUnidadeR}>
+                                <b>Ver Unidades
     |]
 
 getCardapioR :: Handler Html
