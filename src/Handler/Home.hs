@@ -34,7 +34,7 @@ getHomeR = defaultLayout $ do
                         <h2 style="margin-right: 15px; color: #ffffff"> Pedidos:
                         <div class="btn-group" role="group" aria-label="Sabores">
                             <a class="btn btn-light btn-lg" href=@{CrPedidoR}>
-                                <b>Fazer Pedido
+                                <b>Cadastrar Pedido
                             <a class="btn btn-light btn-lg" href=@{PedidoR}>
                                 <b>Ver Pedidos                 
 
@@ -43,7 +43,7 @@ getHomeR = defaultLayout $ do
                         <h2 style="margin-right: 15px; color: #ffffff"> Unidades:
                         <div class="btn-group" role="group" aria-label="Sabores">
                             <a class="btn btn-light btn-lg" href=@{UnidadeR}>
-                                <b>Cadastrar Unidades
+                                <b>Cadastrar Unidade
                             <a class="btn btn-light btn-lg" href=@{ListUnidadeR}>
                                 <b>Ver Unidades
     |]
