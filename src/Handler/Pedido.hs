@@ -40,7 +40,9 @@ getPedidoR = do
         [whamlet|
             <a href=@{HomeR} class="btn btn-outline-primary btn-sm" style="margin: 5px 5px">
                 Voltar
-                
+            
+            <h1 style="margin: 5px 0px 10px 5px">Lista de Pedidos
+            
             <table class=" table table-striped ">
                 <thead>
                     <tr>
