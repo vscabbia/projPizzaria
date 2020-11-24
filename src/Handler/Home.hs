@@ -71,7 +71,6 @@ getCardapioR = do
                             
                             <th>
                                 Descrição
-                            <th>
                     <tbody>
                     $forall Entity _ sabor <- sabors   
                         <tr>
