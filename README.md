@@ -1,5 +1,5 @@
 # Sistema Interno de Pizzaria :pizza:
-Projeto de site feito em **Haskell** e **Yesod** para ser utilizado como sistema interno de uma pizzaria.
+Projeto de site feito com fins acadêmicos em **Haskell** e **Yesod** para ser utilizado como sistema interno de uma pizzaria.
 
 
 
